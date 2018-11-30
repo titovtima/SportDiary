@@ -8,12 +8,14 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/addButton"/>
+            android:id="@+id/addButton"
+            android:text="Add activity"/>
 
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addAnotherButton"
+            android:text="more..."
             android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
