@@ -1,5 +1,6 @@
 package ru.evgeniiborodin.deniskorotchenko.sportdiary
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,7 +13,8 @@ class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
         addButton.setOnClickListener {
-            DialogManager().getDialog(this,  DialogManager.IDD_ADDDIALOG)
+            val dialog = DialogManager().getDialog(this,  DialogManager.IDD_ADDDIALOG)
+            dialog.show()
         }
         addAnotherButton.setOnClickListener{
             Toast.makeText(this, "Здесь мы будем открывать какое-то окошко", Toast.LENGTH_LONG).show()
