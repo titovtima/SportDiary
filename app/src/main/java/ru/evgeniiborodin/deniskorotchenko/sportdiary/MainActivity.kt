@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val sportActivity = arrayOf(
             "Бег",
             "Отжимания",
-            "Присидания",
+            "Приседания",
             "Подтягивания"
         )
 
