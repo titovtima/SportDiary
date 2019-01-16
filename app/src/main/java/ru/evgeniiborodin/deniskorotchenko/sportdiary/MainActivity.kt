@@ -1,42 +1,41 @@
 package ru.evgeniiborodin.deniskorotchenko.sportdiary
 
-import android.content.Intent
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ListView
-import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.ArrayAdapter
-import java.util.*
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
+import android.widget.Toast
+
+
 
 
 class MainActivity : AppCompatActivity() {
 
+    var exercises: Exercises? = null
+    var transaction: android.app.FragmentTransaction? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        change.setOnClickListener {
-            val intent = Intent(this, AddActivity::class.java)
-            startActivity(intent)
-        }
-        // supportActionBar!!.hide()
-        supportActionBar!!.title = Date().toString()
+        exercises = Exercises()
 
-        val listView = findViewById<View>(R.id.listView) as ListView
 
-        val sportActivity = arrayOf(
-            "Бег",
-            "Отжимания",
-            "Приседания",
-            "Подтягивания"
-        )
-
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1, sportActivity
-        )
-
-        listView.adapter = adapter
+        var transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.container, exercises)
+        transaction.commit()
     }
+
+    fun onExercises(view: View) {
+        transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.container, exercises)
+        transaction.commit()
+    }
+
+    fun onStatistics(view: View) {
+        transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.container, exercises)
+        transaction.commit()
+    }
+
 
 }

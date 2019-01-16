@@ -1,33 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Результаты за сегодня!"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/hello"/>
+        android:background="@android:color/background_light"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
 
 
-    <Button
-            android:id="@+id/change"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Добавить данные"/>
-
-    <ListView
-            android:id="@+id/listView"
+    <!-- Прописан Toolbar -->
+    <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hello">
-    </ListView>
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/projectWhite"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/appbar_products"
+                    android:textColor="@color/projectDark"
+                    android:textSize="18sp" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
 
-</RelativeLayout>
+    <!-- Контейнер для фрагментов-->
+    <FrameLayout
+            android:id="@+id/container"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+    </FrameLayout>
+
+
+
+    <!-- Расписываем кнопки управления -->
+    <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+    >
+
+        <!-- Первая кнопка управления -->
+        <ImageButton
+                android:id="@+id/productMenuButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:onClick="onRecipes"
+                android:background="@drawable/menu_rectangle"
+                app:srcCompat="@drawable/products_black"
+        />
+
+        <!-- Вторая кнопка управления -->
+        <ImageButton
+                android:id="@+id/recipeMenuButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:onClick="onRecipes"
+                android:background="@drawable/menu_rectangle"
+                app:srcCompat="@drawable/recipe_black" />
+
+        <!-- Третья кнопка управления -->
+        <ImageButton
+                android:id="@+id/settingMenuButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/menu_rectangle"
+                app:srcCompat="@drawable/settings_black" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+
+</LinearLayout>

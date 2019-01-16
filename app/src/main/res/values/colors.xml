@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- Project colors -->
+    <color name="projectLight">#bdc3c7</color>
+    <color name="projectDark">#212121</color>
+    <color name="projectWhite">#ecf0f1</color>
 </resources>
