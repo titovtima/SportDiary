@@ -5,22 +5,23 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
-import android.widget.Toast
-
-
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Statistics
 
 
 class MainActivity : AppCompatActivity() {
 
-    var exercises: Exercises? = null
-    var transaction: android.app.FragmentTransaction? = null
+    private lateinit var exercises: Exercises
+    private lateinit var statistics: Statistics
+    private lateinit var transaction: android.app.FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setContentView(R.layout.activity_main)
         super.onCreate(savedInstanceState)
         exercises = Exercises()
+        statistics = Statistics()
 
 
-        var transaction = fragmentManager.beginTransaction()
+        transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.container, exercises)
         transaction.commit()
     }
@@ -33,9 +34,10 @@ class MainActivity : AppCompatActivity() {
 
     fun onStatistics(view: View) {
         transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.container, exercises)
+        transaction.replace(R.id.container, statistics)
         transaction.commit()
     }
 
 
 }
+
