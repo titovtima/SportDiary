@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "736252541945",
+    "firebase_url": "https://smartfridge-fe722.firebaseio.com",
+    "project_id": "smartfridge-fe722",
+    "storage_bucket": "smartfridge-fe722.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736252541945:android:dc2460efc840aa35",
+        "android_client_info": {
+          "package_name": "ru.evgeniiborodin.deniskorotchenko.sportdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736252541945-ip2v8oj7tcm82olbh4aio0si17ad4ml9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe6mCK2ZdAzQ6dSN_R-jRg8CPvRAG6s0U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

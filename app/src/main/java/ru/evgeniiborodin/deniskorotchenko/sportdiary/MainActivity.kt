@@ -10,32 +10,34 @@ import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Statistics
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var exercises: Exercises
-    private lateinit var statistics: Statistics
-    private lateinit var transaction: android.app.FragmentTransaction
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setContentView(R.layout.activity_main)
         super.onCreate(savedInstanceState)
-        exercises = Exercises()
-        statistics = Statistics()
+        setContentView(R.layout.activity_main)
 
 
-        transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.container, exercises)
-        transaction.commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.container,Exercises.newInstance())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     fun onExercises(view: View) {
-        transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.container, exercises)
-        transaction.commit()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,Exercises.newInstance())
+            .commit()
     }
 
     fun onStatistics(view: View) {
-        transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.container, statistics)
-        transaction.commit()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,Statistics.newInstance())
+            .commit()
     }
 
 

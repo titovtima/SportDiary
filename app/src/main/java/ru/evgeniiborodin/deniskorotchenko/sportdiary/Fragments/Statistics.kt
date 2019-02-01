@@ -7,12 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.R
 
+//1
 class Statistics : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //2
+    companion object {
 
-        val productsView = inflater.inflate(R.layout.exercises, container, false)
-        return productsView
+        fun newInstance(): Statistics {
+            return Statistics()
+        }
+    }
+
+    //3
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.statistics, container, false)
     }
 
 }
