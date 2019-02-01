@@ -15,21 +15,24 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Фрагмент 1" />
+                android:text="Фрагмент 1"
+                android:onClick="onExercises"/>
 
         <Button
                 android:id="@+id/button2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Фрагмент 2" />
+                android:text="Фрагмент 2"
+                android:onClick="onStatistics"/>
 
         <Button
                 android:id="@+id/button3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Фрагмент 3" />
+                android:text="Фрагмент 3"
+                android:onClick="onStatistics"/>
     </LinearLayout>
 
     <FrameLayout
