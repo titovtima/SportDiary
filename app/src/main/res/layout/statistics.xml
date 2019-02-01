@@ -8,6 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Second Screen"
+            android:id="@+id/st"
     />
 
 </android.support.constraint.ConstraintLayout>
