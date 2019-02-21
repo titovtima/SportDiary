@@ -7,18 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.R
 
-class Statistics : Fragment() {
+class Auth : Fragment() {
 
     companion object {
 
-        fun newInstance(): Statistics {
-            return Statistics()
+        fun newInstance(): Auth {
+            return Auth()
         }
     }
 
-    //3
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.statistics, container, false)
+        return inflater.inflate(R.layout.auth, container, false)
     }
+
 
 }

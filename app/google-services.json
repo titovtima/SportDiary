@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "736252541945-ha16g27fbkd7s9dp2bj953v9pebhe2dp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.evgeniiborodin.deniskorotchenko.sportdiary",
+            "certificate_hash": "b7b4e42c53bb2bb7bc1f45ed16cb099bccc26174"
+          }
+        },
+        {
           "client_id": "736252541945-ip2v8oj7tcm82olbh4aio0si17ad4ml9.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736252541945-ip2v8oj7tcm82olbh4aio0si17ad4ml9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
