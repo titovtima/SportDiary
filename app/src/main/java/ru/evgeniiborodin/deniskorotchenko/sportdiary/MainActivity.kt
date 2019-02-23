@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.container, Exercises.newInstance())
-                .addToBackStack(null)
                 .commit()
         }
     }
@@ -128,8 +127,7 @@ class MainActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.container, Auth.newInstance())
-            .addToBackStack(null)
+            .replace(R.id.container, Auth.newInstance())
             .commit()
     }
 }
