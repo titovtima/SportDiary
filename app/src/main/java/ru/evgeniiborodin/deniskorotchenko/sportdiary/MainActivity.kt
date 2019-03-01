@@ -9,6 +9,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.android.gms.tasks.OnCompleteListener
 import kotlinx.android.synthetic.main.reg.*
 import kotlinx.android.synthetic.main.auth.*
+import kotlinx.android.synthetic.main.exercises.*
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Auth
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Registration
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         auth = FirebaseAuth.getInstance()
 
+
     }
 
     public override fun onStart() {
@@ -41,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.container, Auth.newInstance())
                 .addToBackStack(null)
                 .commit()
-
         }
         else {
             supportFragmentManager
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.container, Exercises.newInstance())
                 .commit()
         }
+    }
+
+
+    fun onCheckFirebase(view: View){
+        DataHandler.getsmth("Exercise 1")
+        Toast.makeText(applicationContext, DataHandler.strData, Toast.LENGTH_SHORT).show()
     }
 
 
