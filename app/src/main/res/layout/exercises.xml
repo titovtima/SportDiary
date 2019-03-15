@@ -6,9 +6,11 @@
         android:id="@+id/exercises">
 
 
-    <TextView
+    <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/first_screen"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/list">
+
+    </ListView>
 
 </android.support.design.widget.CoordinatorLayout>

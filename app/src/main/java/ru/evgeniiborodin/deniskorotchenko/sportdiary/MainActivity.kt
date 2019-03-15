@@ -14,6 +14,10 @@ import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Registration
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Statistics
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
+
 
 
 
@@ -27,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         auth = FirebaseAuth.getInstance()
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("message")
+        myRef.setValue("Hello, World!")
 
     }
 
@@ -88,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     val toast = Toast.makeText(
                         applicationContext,
                         "Видимо такой email уже используется или вы не подключены к интернету" +
-                                ", повторите попытку снова позднее , используя другой адрес", Toast.LENGTH_SHORT
+                                ", повторите попытку позднее или используйте другой адрес", Toast.LENGTH_SHORT
                     )
                     toast.show()
                 }
@@ -128,6 +135,13 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, Auth.newInstance())
+            .commit()
+    }
+
+    fun exercise(view: View) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, Exercises.newInstance())
             .commit()
     }
 }

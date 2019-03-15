@@ -8,8 +8,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/out"
-            android:text="Sign out"
-            android:onClick="out"
+            android:text="Exercises"
+            android:onClick="exercise"
             tools:ignore="MissingConstraints"/>
+
 
 </android.support.constraint.ConstraintLayout>
