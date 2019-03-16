@@ -24,7 +24,7 @@ class DataBaseHelper internal constructor(context:Context):SQLiteOpenHelper(cont
 
     companion object {
         var columnNames = arrayOf("exerciseID", "exerciseName", "number", "date")
-        private val DATABASE_NAME = "exercises.db"
+        private val DATABASE_NAME = "block.db"
         val TABLE_NAME = "local_exercises"
         private val DATABASE_VERSION = 1
     }
