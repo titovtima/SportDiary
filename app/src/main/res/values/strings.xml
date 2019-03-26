@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SportDiary</string>
+    <string name="app_name">Sport Diary</string>
     <string name="first_screen">First screen</string>
     <string name="authorization">Authorization</string>
     <string name="registration">Registration</string>
