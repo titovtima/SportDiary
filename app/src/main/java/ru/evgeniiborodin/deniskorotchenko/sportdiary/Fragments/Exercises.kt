@@ -13,7 +13,6 @@ import android.widget.ListView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseUser
@@ -25,9 +24,8 @@ class Exercises : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var myRef: DatabaseReference
     private var mRecyclerView: RecyclerView? = null
-    var ListOfData: ListView? = null
-    private val mLayoutManager: RecyclerView.LayoutManager? = null
-    var task: Map<String,String>? = null
+    var listOfData: ListView? = null
+    var listOfExercises: ArrayList<String>? = null
 
     //2
     companion object {
@@ -49,7 +47,7 @@ class Exercises : Fragment() {
 
 
     fun data(){
-        ListOfData = activity?.findViewById(R.id.list) // ListView где будет отображаться вся информация
+        listOfData = activity?.findViewById(R.id.list) // ListView где будет отображаться вся информация
 
         myRef = FirebaseDatabase.getInstance().reference
 
@@ -60,18 +58,16 @@ class Exercises : Fragment() {
 
         myRef.child(user.uid).child("task").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var t: GenericTypeIndicator<String>  =   GenericTypeIndicator<String>()
-                task = dataSnapshot.value as Map<String,String>?
-                /*val toast = Toast.makeText(
+                var task: Map<String,String> = dataSnapshot.value as Map<String,String>
+                listOfExercises = ArrayList<String>()
+                for (value in task.values) {
+                    listOfExercises!!.add(value)
+                }
+                val toast1 = Toast.makeText(
                     context,
-                    task!!.size, Toast.LENGTH_SHORT
+                    listOfExercises!!.get(0), Toast.LENGTH_SHORT
                 )
-                toast.show()*/
-                val toast = Toast.makeText(
-                    context,
-                    task?.size.toString(), Toast.LENGTH_SHORT
-                )
-                toast.show()
+                toast1.show()
                 //updateUI()
             }
 
@@ -85,14 +81,10 @@ class Exercises : Fragment() {
     }
 
     fun updateUI() {
-        var adapter: ArrayAdapter<String> = ArrayAdapter<String>(context, android.R.layout.simple_list_item_1)
+        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(context, android.R.layout.simple_list_item_1
+            ,listOfExercises)
+        listOfData?.adapter = adapter
 
-        ListOfData?.adapter = adapter
-        /*val toast = Toast.makeText(
-            context,
-            task, Toast.LENGTH_SHORT
-        )
-        toast.show()*/
     }
 
 }
