@@ -11,17 +11,10 @@ import com.google.android.gms.tasks.OnCompleteListener
 import kotlinx.android.synthetic.main.reg.*
 import kotlinx.android.synthetic.main.auth.*
 import kotlinx.android.synthetic.main.exercises.*
-import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Auth
-import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
-import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Registration
-import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Statistics
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-
-
-
-
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -160,6 +153,13 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container,Statistics.newInstance())
+            .commit()
+    }
+
+    fun onCalendar(view : View){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,Calendar.newInstance())
             .commit()
     }
 }

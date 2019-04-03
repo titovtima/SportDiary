@@ -21,6 +21,8 @@
     </ListView>
 
     <android.support.design.widget.FloatingActionButton
+            android:onClick = "onCalendar"
+
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,6 +34,7 @@
             app:layout_behavior="ru.evgeniiborodin.deniskorotchenko.sportdiary.FloatOnScroll"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/plus" />
+            app:srcCompat="@drawable/plus"
+    />
 
 </android.support.design.widget.CoordinatorLayout>
