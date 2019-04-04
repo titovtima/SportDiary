@@ -39,7 +39,11 @@ class Exercises : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         data()
 
-        return inflater.inflate(R.layout.exercises, container, false)
+        val infl = inflater.inflate(R.layout.exercises, container, false)
+
+
+
+        return infl
     }
 
 
