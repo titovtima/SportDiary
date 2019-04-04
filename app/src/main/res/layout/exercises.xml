@@ -16,25 +16,62 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/list"
-            >
+            android:headerDividersEnabled="false">
 
     </ListView>
 
-    <android.support.design.widget.FloatingActionButton
-            android:onClick = "onCalendar"
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="bottom|end"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+    >
 
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:backgroundTint="@color/Grey"
-            app:layout_behavior="ru.evgeniiborodin.deniskorotchenko.sportdiary.FloatOnScroll"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/plus"
-    />
+        <android.support.design.widget.FloatingActionButton
+                android:onClick="onCalendar"
+                android:id="@+id/toCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                app:backgroundTint="@color/Grey"
+                app:layout_behavior="ru.evgeniiborodin.deniskorotchenko.sportdiary.FloatOnScroll"
+                app:srcCompat="@drawable/calendar"
+                app:maxImageSize="55dp"
+                app:borderWidth="0dp"
+        />
 
+        <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:backgroundTint="@color/Grey"
+                app:layout_behavior="ru.evgeniiborodin.deniskorotchenko.sportdiary.FloatOnScroll"
+                app:srcCompat="@drawable/plus"
+        />
+
+
+    </LinearLayout>
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:onClick = "onCalendar"-->
+
+            <!--android:id="@+id/fab"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|end"-->
+            <!--android:layout_margin="@dimen/fab_margin"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:layout_marginBottom="16dp"-->
+            <!--app:backgroundTint="@color/Grey"-->
+            <!--app:layout_behavior="ru.evgeniiborodin.deniskorotchenko.sportdiary.FloatOnScroll"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:srcCompat="@drawable/plus"-->
+    <!--/>-->
 </android.support.design.widget.CoordinatorLayout>
