@@ -4,6 +4,7 @@ package ru.evgeniiborodin.deniskorotchenko.sportdiary
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.CalendarView
 import android.widget.EditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.AuthResult
@@ -19,6 +20,10 @@ import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        var act : MainActivity? = null
+    }
+
     private lateinit var auth: FirebaseAuth
 
 
@@ -30,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val myRef = database.getReference("message")
         myRef.setValue("Hello, World!")
 
-
+        MainActivity.act = this
     }
 
     public override fun onStart() {
@@ -160,6 +165,15 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container,Calendar.newInstance())
+            .commit()
+    }
+
+    fun outCalendar(view: CalendarView, year: Int, month: Int, dayOfMonth : Int){
+        val toast = Toast.makeText(this, "out of Calendar", Toast.LENGTH_SHORT)
+        toast.show()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, Exercises.newInstance())
             .commit()
     }
 }

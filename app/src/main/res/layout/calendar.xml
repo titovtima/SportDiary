@@ -6,15 +6,17 @@
               android:id="@+id/ll1"
 >
 
-    <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--android:id="@+id/ll2"-->
-    <!--&gt;-->
+    <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/calenv"
+            android:selectedWeekBackgroundColor="#ff0000"
+            android:weekNumberColor="#00ff00"
+            android:weekSeparatorLineColor="#0000ff"
+
+    >
 
 
-
-    <!--</LinearLayout>-->
+    </CalendarView>
 
 </LinearLayout>
