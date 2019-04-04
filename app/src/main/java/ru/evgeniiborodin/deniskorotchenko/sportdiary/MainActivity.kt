@@ -11,6 +11,10 @@ import com.google.firebase.auth.AuthResult
 import com.google.android.gms.tasks.OnCompleteListener
 import kotlinx.android.synthetic.main.reg.*
 import kotlinx.android.synthetic.main.auth.*
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Auth
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Registration
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Statistics
 import kotlinx.android.synthetic.main.exercises.*
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
