@@ -39,7 +39,11 @@ class Exercises : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         data()
 
-        return inflater.inflate(R.layout.exercises, container, false)
+        val infl = inflater.inflate(R.layout.exercises, container, false)
+
+
+
+        return infl
     }
 
 
@@ -58,7 +62,8 @@ class Exercises : Fragment() {
 
         myRef.child(user.uid).child("task").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var task: Map<String,String> = dataSnapshot.value as Map<String,String>
+                var task: Map<String,String>? = dataSnapshot.value as Map<String,String>?
+                if (task == null) return
                 listOfExercises = ArrayList<String>()
                 for (value in task.values) {
                     listOfExercises!!.add(value)
@@ -78,6 +83,8 @@ class Exercises : Fragment() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+
+
     }
 
     fun updateUI() {

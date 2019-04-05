@@ -4,6 +4,7 @@ package ru.evgeniiborodin.deniskorotchenko.sportdiary
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.CalendarView
 import android.widget.EditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.AuthResult
@@ -14,16 +15,18 @@ import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Auth
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Exercises
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Registration
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.Statistics
+import kotlinx.android.synthetic.main.exercises.*
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-
-
-
-
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        var act : MainActivity? = null
+    }
 
     private lateinit var auth: FirebaseAuth
 
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         val myRef = database.getReference("message")
         myRef.setValue("Hello, World!")
 
+        MainActivity.act = this
     }
 
     public override fun onStart() {
@@ -49,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, Auth.newInstance())
                 .addToBackStack(null)
                 .commit()
-
         }
         else {
             supportFragmentManager
@@ -57,6 +60,12 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, Exercises.newInstance())
                 .commit()
         }
+    }
+
+
+    fun onCheckFirebase(view: View){
+        DataHandler.getsmth("Exercise 1")
+        Toast.makeText(applicationContext, DataHandler.strData, Toast.LENGTH_SHORT).show()
     }
 
 
@@ -153,6 +162,22 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container,Statistics.newInstance())
+            .commit()
+    }
+
+    fun onCalendar(view : View){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,Calendar.newInstance())
+            .commit()
+    }
+
+    fun outCalendar(view: CalendarView, year: Int, month: Int, dayOfMonth : Int){
+        val toast = Toast.makeText(this, "out of Calendar", Toast.LENGTH_SHORT)
+        toast.show()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, Exercises.newInstance())
             .commit()
     }
 }
