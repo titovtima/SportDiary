@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Spinner android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/spinex"
+             android:layout_alignParentStart="true"
+    >
+
+    </Spinner>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:id="@+id/ll548"
+                  android:weightSum="3"
+                  android:layout_below="@id/spinex"
+    >
+
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/times"
+                  android:layout_weight="1"
+                  android:inputType="numberDecimal"
+        />
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/text"
+                  android:text="минут"
+                  android:layout_weight="1"
+        />
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/enter"
+                android:text="Enter"
+                android:layout_weight="1"
+        />
+
+    </LinearLayout>
+
+</RelativeLayout>

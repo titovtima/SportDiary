@@ -187,5 +187,13 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, Exercises.newInstance())
             .commit()
     }
+
+    fun onNewExercise(view: View){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,NewExercise.newInstance())
+            .addToBackStack(null)
+            .commit()
+    }
 }
 
