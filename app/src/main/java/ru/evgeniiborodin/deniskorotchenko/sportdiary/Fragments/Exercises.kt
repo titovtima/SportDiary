@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseUser
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.MainActivity
 
 
 //1
@@ -55,9 +56,19 @@ class Exercises : Fragment() {
         auth = FirebaseAuth.getInstance()
         var user: FirebaseUser = auth.currentUser!! // получили нынешнего пользователя
 
+        var watchData = MainActivity.year.toString()
+        if (MainActivity.month < 10)
+            watchData += "0"
+        watchData += MainActivity.month.toString()
+        if (MainActivity.dayOfMonth < 10)
+            watchData += "0"
+        watchData += MainActivity.dayOfMonth.toString()
 
+//        Log.d("watchdata", watchData)
 
-        myRef.child(user.uid).child("task").addValueEventListener(object : ValueEventListener {
+//        Log.d("usermyid", user.uid) // имя пользователя в лог
+
+        myRef.child(user.uid).child("task").child(watchData).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 task = dataSnapshot.value as Map<String,String>? ?: return
                 listOfExercises = ArrayList<String>()

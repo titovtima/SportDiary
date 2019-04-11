@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var act : MainActivity? = null
+        var year = 0
+        var month = 0
+        var dayOfMonth = 0
     }
 
     private lateinit var auth: FirebaseAuth
@@ -176,6 +179,9 @@ class MainActivity : AppCompatActivity() {
     fun outCalendar(view: CalendarView, year: Int, month: Int, dayOfMonth : Int){
         val toast = Toast.makeText(this, "out of Calendar", Toast.LENGTH_SHORT)
         toast.show()
+        MainActivity.year = year
+        MainActivity.month = month + 1
+        MainActivity.dayOfMonth = dayOfMonth
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, Exercises.newInstance())
