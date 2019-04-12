@@ -20,6 +20,7 @@ import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         var year = 0
         var month = 0
         var dayOfMonth = 0
+        var calendardate : Long = 0
+        var mcalendar : Calendar = Calendar.getInstance()
     }
 
     private lateinit var auth: FirebaseAuth
@@ -171,7 +174,7 @@ class MainActivity : AppCompatActivity() {
     fun onCalendar(view : View){
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container,Calendar.newInstance())
+            .replace(R.id.container,CalendarF.newInstance())
             .addToBackStack(null)
             .commit()
     }
@@ -182,6 +185,7 @@ class MainActivity : AppCompatActivity() {
         MainActivity.year = year
         MainActivity.month = month + 1
         MainActivity.dayOfMonth = dayOfMonth
+        MainActivity.mcalendar = GregorianCalendar(year, month - 1, dayOfMonth)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, Exercises.newInstance())
@@ -193,6 +197,13 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.container,NewExercise.newInstance())
             .addToBackStack(null)
+            .commit()
+    }
+
+    fun outOfNewExercise(){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, Exercises.newInstance())
             .commit()
     }
 }

@@ -11,7 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.new_exercise.*
+import ru.evgeniiborodin.deniskorotchenko.sportdiary.MainActivity
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.R
 
 class NewExercise : Fragment() {
@@ -21,6 +27,10 @@ class NewExercise : Fragment() {
                         "Прыжки в длину", "Прыжки на скакалке", "Растяжка", "Рывки на 10 метров")
     var selected = "Бег"
     var entered = 0
+
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var myRef: DatabaseReference
 
     companion object {
         fun newInstance(): NewExercise {
@@ -157,6 +167,30 @@ class NewExercise : Fragment() {
 //
 //            false
 //        }
+
+        myRef = FirebaseDatabase.getInstance().reference
+
+        auth = FirebaseAuth.getInstance()
+        var user: FirebaseUser = auth.currentUser!! // получили нынешнего пользователя
+
+        var watchData = MainActivity.year.toString()
+        if (MainActivity.month < 10)
+            watchData += "0"
+        watchData += MainActivity.month.toString()
+        if (MainActivity.dayOfMonth < 10)
+            watchData += "0"
+        watchData += MainActivity.dayOfMonth.toString()
+
+        enter.setOnClickListener {
+            if (entered > 0) {
+                myRef.child(user.uid).child("task").child(watchData).child(selected)
+                       .setValue(entered.toString() + " " + text.text.toString())
+                MainActivity.act!!.outOfNewExercise()
+            } else {
+                val toast = Toast.makeText(context, "Введите ненулевое количество упражнений", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        }
     }
 
 }

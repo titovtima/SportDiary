@@ -77,7 +77,7 @@ class Exercises : Fragment() {
                 }
                 val toast1 = Toast.makeText(
                     context,
-                    listOfExercises!!.get(1), Toast.LENGTH_SHORT
+                    listOfExercises!!.get(0), Toast.LENGTH_SHORT
                 )
                 toast1.show()
                 updateUI()

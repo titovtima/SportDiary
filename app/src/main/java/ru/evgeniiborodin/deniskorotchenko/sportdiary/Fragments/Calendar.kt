@@ -2,6 +2,7 @@ package ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +13,11 @@ import kotlinx.android.synthetic.main.calendar.*
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.MainActivity
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.R
 
-class Calendar : Fragment() {
+class CalendarF : Fragment() {
 
     companion object {
-        fun newInstance(): Calendar {
-            return Calendar()
+        fun newInstance(): CalendarF {
+            return CalendarF()
         }
     }
 
@@ -24,15 +25,16 @@ class Calendar : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (container == null) return null
 
-
         var infl = inflater.inflate(R.layout.calendar, container, false)
 
         var calendar = infl.findViewById<CalendarView>(R.id.calenv)
         calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
 //            if (MainActivity.act != null) {
-                (MainActivity.act as MainActivity).outCalendar(view, year, month, dayOfMonth)
+            (MainActivity.act as MainActivity).outCalendar(view, year, month, dayOfMonth)
 //            }
         }
+
+//        Log.d("calendardata", calendar.date.toString())
 
 
 ///////////////////////////////////////////////////////////////
