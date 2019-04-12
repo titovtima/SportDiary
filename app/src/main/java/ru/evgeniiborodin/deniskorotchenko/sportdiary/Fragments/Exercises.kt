@@ -14,8 +14,10 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.exercises.*
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.MainActivity
 
 
@@ -44,8 +46,8 @@ class Exercises : Fragment() {
 
 
     override fun onStart() {
-        super.onStart()
         data()
+        super.onStart()
     }
 
 
@@ -68,6 +70,8 @@ class Exercises : Fragment() {
 
 //        Log.d("usermyid", user.uid) // имя пользователя в лог
 
+
+
         myRef.child(user.uid).child("task").child(watchData).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 task = dataSnapshot.value as Map<String,String>? ?: return
@@ -81,6 +85,14 @@ class Exercises : Fragment() {
                 )
                 toast1.show()
                 updateUI()
+
+                val noextext1 = MainActivity.act!!.findViewById<TextView>(R.id.noextext)
+
+                if (listOfExercises!!.isEmpty()){
+                    noextext1.visibility = View.VISIBLE
+                } else {
+                    noextext1.visibility = View.INVISIBLE
+                }
             }
 
 
@@ -104,7 +116,12 @@ class Exercises : Fragment() {
         )
 
         listOfData.adapter = adapter
-
     }
 
+
+//    override fun onResume() {
+//
+//        super.onResume()
+//
+//    }
 }

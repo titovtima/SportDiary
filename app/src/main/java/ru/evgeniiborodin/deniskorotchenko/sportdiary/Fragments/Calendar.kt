@@ -28,6 +28,7 @@ class CalendarF : Fragment() {
         var infl = inflater.inflate(R.layout.calendar, container, false)
 
         var calendar = infl.findViewById<CalendarView>(R.id.calenv)
+        calendar.date = MainActivity.mcalendar.timeInMillis
         calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
 //            if (MainActivity.act != null) {
             (MainActivity.act as MainActivity).outCalendar(view, year, month, dayOfMonth)
