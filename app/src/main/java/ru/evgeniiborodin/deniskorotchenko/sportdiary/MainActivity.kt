@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var act : MainActivity? = null
-        var year = 0
-        var month = 0
-        var dayOfMonth = 0
-        var calendardate : Long = 0
-        var mcalendar : Calendar = Calendar.getInstance()
+//        var calendardate : Long = 0
+//        var mcalendar : Calendar = Calendar.getInstance()
+        var year = 2019
+        var month = 4
+        var dayOfMonth = 12
     }
 
     private lateinit var auth: FirebaseAuth
@@ -185,7 +185,7 @@ class MainActivity : AppCompatActivity() {
         MainActivity.year = year
         MainActivity.month = month + 1
         MainActivity.dayOfMonth = dayOfMonth
-        MainActivity.mcalendar = GregorianCalendar(year, month - 1, dayOfMonth)
+//        MainActivity.mcalendar = GregorianCalendar(year, month - 1, dayOfMonth)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, Exercises.newInstance())
