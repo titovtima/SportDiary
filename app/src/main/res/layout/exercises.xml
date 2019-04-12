@@ -15,18 +15,20 @@
     <ListView
             android:id="@+id/list1234"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+    >
 
     </ListView>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="На этот день упражнений нет"
+              android:text="@string/Warning"
               android:visibility="visible"
               android:id="@+id/noextext"
+              android:textColor="@color/cast_expanded_controller_background_color"
               android:layout_gravity="top|center_horizontal"
-              android:textSize="26dp"
-              android:layout_marginTop="60dp"
+              android:textSize="26sp"
+              android:padding="60sp"
     />
 
     <LinearLayout android:layout_width="wrap_content"
