@@ -20,12 +20,18 @@ import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.Fragments.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
         var act : MainActivity? = null
+//        var calendardate : Long = 0
+//        var mcalendar : Calendar = Calendar.getInstance()
+        var year = 2019
+        var month = 4
+        var dayOfMonth = 12
     }
 
     private lateinit var auth: FirebaseAuth
@@ -168,7 +174,7 @@ class MainActivity : AppCompatActivity() {
     fun onCalendar(view : View){
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container,Calendar.newInstance())
+            .replace(R.id.container,CalendarF.newInstance())
             .addToBackStack(null)
             .commit()
     }
@@ -176,6 +182,25 @@ class MainActivity : AppCompatActivity() {
     fun outCalendar(view: CalendarView, year: Int, month: Int, dayOfMonth : Int){
         val toast = Toast.makeText(this, "out of Calendar", Toast.LENGTH_SHORT)
         toast.show()
+        MainActivity.year = year
+        MainActivity.month = month + 1
+        MainActivity.dayOfMonth = dayOfMonth
+//        MainActivity.mcalendar = GregorianCalendar(year, month - 1, dayOfMonth)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, Exercises.newInstance())
+            .commit()
+    }
+
+    fun onNewExercise(view: View){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,NewExercise.newInstance())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun outOfNewExercise(){
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, Exercises.newInstance())

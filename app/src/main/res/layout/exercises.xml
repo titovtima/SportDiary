@@ -43,6 +43,7 @@
         />
 
         <android.support.design.widget.FloatingActionButton
+                android:onClick="onNewExercise"
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
