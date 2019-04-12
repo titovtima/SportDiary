@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         var act : MainActivity? = null
 //        var calendardate : Long = 0
-//        var mcalendar : Calendar = Calendar.getInstance()
+        var mcalendar : Calendar = Calendar.getInstance()
         var year = 2019
         var month = 4
         var dayOfMonth = 12
@@ -185,7 +185,9 @@ class MainActivity : AppCompatActivity() {
         MainActivity.year = year
         MainActivity.month = month + 1
         MainActivity.dayOfMonth = dayOfMonth
-//        MainActivity.mcalendar = GregorianCalendar(year, month - 1, dayOfMonth)
+        MainActivity.mcalendar.set(Calendar.YEAR, year)
+        MainActivity.mcalendar.set(Calendar.MONTH, month)
+        MainActivity.mcalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, Exercises.newInstance())
