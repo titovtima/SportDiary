@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity() {
 
     fun onCheckFirebase(view: View){
         DataHandler.getsmth("Exercise 1")
-        Toast.makeText(applicationContext, DataHandler.strData, Toast.LENGTH_SHORT).show()
     }
 
 
@@ -113,7 +112,7 @@ class MainActivity : AppCompatActivity() {
                         val toast = Toast.makeText(
                             applicationContext,
                             "Видимо такой email уже используется или вы не подключены к интернету" +
-                                    ", повторите попытку позднее или используйте другой адрес", Toast.LENGTH_SHORT
+                                    ", повторите попытку позднее или используйте другой почтовый адрес", Toast.LENGTH_SHORT
                         )
                         toast.show()
                     }
@@ -180,8 +179,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun outCalendar(view: CalendarView, year: Int, month: Int, dayOfMonth : Int){
-        val toast = Toast.makeText(this, "out of Calendar", Toast.LENGTH_SHORT)
-        toast.show()
         MainActivity.year = year
         MainActivity.month = month + 1
         MainActivity.dayOfMonth = dayOfMonth

@@ -79,11 +79,6 @@ class Exercises : Fragment() {
                 for (value in task!!) {
                     listOfExercises!!.add(value.key+":  "+value.value)
                 }
-                val toast1 = Toast.makeText(
-                    context,
-                    listOfExercises!!.get(0), Toast.LENGTH_SHORT
-                )
-                toast1.show()
                 updateUI()
 
                 val noextext1 = MainActivity.act!!.findViewById<TextView>(R.id.noextext)
