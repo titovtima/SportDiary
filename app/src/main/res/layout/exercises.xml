@@ -40,6 +40,21 @@
     >
 
         <android.support.design.widget.FloatingActionButton
+                android:onClick="out"
+                android:id="@+id/regOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                app:backgroundTint="#FF0000"
+                app:layout_behavior="ru.evgeniiborodin.deniskorotchenko.sportdiary.FloatOnScroll"
+                app:srcCompat="@drawable/regout"
+                app:maxImageSize="30sp"
+                app:borderWidth="0sp"
+        />
+
+        <android.support.design.widget.FloatingActionButton
                 android:onClick="onCalendar"
                 android:id="@+id/toCalendar"
                 android:layout_width="wrap_content"
