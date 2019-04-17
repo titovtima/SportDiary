@@ -102,7 +102,7 @@ class Exercises : Fragment() {
                 var i = 0
                 while ((texts[i] > '9')||(texts[i] < '0'))
                     i++
-                InExercise.exName = texts.substring(0, i-1)
+                InExercise.exName = texts.substring(0, i-3)
                 InExercise.exKol = texts.substring(i)
                 MainActivity.act!!.onList()
             }
