@@ -220,6 +220,11 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    fun onList(){
+        var dial = InExercise.newInstance()
+        dial.show(supportFragmentManager, "dial")
+    }
+
     override fun onCreateDialog(id: Int): Dialog? {
         when (id){
             idRegOutW -> {
