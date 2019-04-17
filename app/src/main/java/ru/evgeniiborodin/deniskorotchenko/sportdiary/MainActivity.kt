@@ -1,6 +1,9 @@
 package ru.evgeniiborodin.deniskorotchenko.sportdiary
 
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -35,6 +38,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var auth: FirebaseAuth
+
+    private var idRegOutW = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -149,6 +154,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun out(view: View) {
+        showDialog(idRegOutW)
+//        FirebaseAuth.getInstance().signOut()
+//        supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.container, Auth.newInstance())
+//            .commit()
+    }
+
+    fun regout(){
         FirebaseAuth.getInstance().signOut()
         supportFragmentManager
             .beginTransaction()
@@ -204,6 +218,33 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.container, Exercises.newInstance())
             .commit()
+    }
+
+    fun onList(){
+        var dial = InExercise.newInstance()
+        dial.show(supportFragmentManager, "dial")
+    }
+
+    override fun onCreateDialog(id: Int): Dialog? {
+        when (id){
+            idRegOutW -> {
+                var builder = AlertDialog.Builder(this)
+                builder.setMessage("Вы действительно хотите выйти из аккаунта?")
+                builder.setPositiveButton("Да", object : DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        regout()
+                    }
+                })
+                builder.setNegativeButton("Нет", object : DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        dialog!!.cancel()
+                    }
+                })
+                builder.setCancelable(true)
+                return builder.create()
+            }
+            else -> return null
+        }
     }
 }
 

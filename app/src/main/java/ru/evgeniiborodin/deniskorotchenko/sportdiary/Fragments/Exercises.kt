@@ -12,10 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.exercises.*
 import ru.evgeniiborodin.deniskorotchenko.sportdiary.MainActivity
@@ -98,7 +95,18 @@ class Exercises : Fragment() {
             }
         })
 
-
+        list1234.setOnItemClickListener(object : AdapterView.OnItemClickListener{
+            override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                list1234.setSelection(position)
+                var texts = (view as TextView).text.toString()
+                var i = 0
+                while ((texts[i] > '9')||(texts[i] < '0'))
+                    i++
+                InExercise.exName = texts.substring(0, i-3)
+                InExercise.exKol = texts.substring(i)
+                MainActivity.act!!.onList()
+            }
+        })
     }
 
     fun updateUI() {
@@ -114,9 +122,4 @@ class Exercises : Fragment() {
     }
 
 
-//    override fun onResume() {
-//
-//        super.onResume()
-//
-//    }
 }
